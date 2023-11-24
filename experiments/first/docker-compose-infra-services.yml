@@ -1,5 +1,5 @@
 version: "3.7"
-name: redpanda-quickstart
+x-name: redpanda-quickstart
 networks:
   redpanda_network:
     driver: bridge
@@ -77,9 +77,9 @@ services:
 
   redpanda-init:
     image: docker.redpanda.com/redpandadata/redpanda:v23.2.6
-    depends_on:
-      redpanda-0:
-        condition: service_healthy
+    # depends_on:
+    #   redpanda-0:
+    #     condition: service_healthy
     networks:
       - redpanda_network
     command: topic create -r 1 -p 1 my-topic --brokers redpanda-0:9092

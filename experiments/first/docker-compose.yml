@@ -26,4 +26,7 @@ services:
     #volumes:
     #  - .:/home/user/app
     restart: on-failure   
- 
+
+networks:
+  redpanda_network:
+    driver: bridge

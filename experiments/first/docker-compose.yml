@@ -1,7 +1,7 @@
 version: "3.7"
 name: redpanda-quickstart
-include:
-  - docker-compose-infra-services.yml
+# include:
+#   - docker-compose-infra-services.yml
 services:
   # this is a docker with dev hugging face model for dev purposes
   # should not be here on production

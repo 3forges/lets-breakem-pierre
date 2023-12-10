@@ -77,7 +77,7 @@ services:
             enabled: true
             # urls: ["http://redpanda-0:9644"]
             # urls: ["http://redpanda-0.pesto.io:19644/v1/"]
-            urls: ["http://redpanda-0.pesto.io:19644"]
+            urls: ["http://redpanda-0.pesto.io:9644"]
     ports:
       - 0.0.0.0:8080:8080
     depends_on:

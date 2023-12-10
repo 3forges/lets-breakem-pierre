@@ -5,27 +5,39 @@ mkdir -p $HOME/docker/volumes/postgres
 mkdir -p $HOME/.github
 
 
-docker pull docker.redpanda.com/redpandadata/redpanda:v23.2.6
-docker pull docker.redpanda.com/redpandadata/console:v2.3.1
-docker pull minio/minio:RELEASE.2023-08-29T23-07-35Z
-docker pull amazon/aws-cli
-docker pull mageai/mageai:latest
-docker pull jupyter/minimal-notebook:latest
-docker pull postgres:13.3
-docker pull hatmatrix/blog:base
-
-
 echo "MYSQL_ROOT_PASSWORD=very_strong_password" > .secrets
 
 
+export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-"debezium"}
+export MYSQL_USER=${MYSQL_USER:-"admin"}
+export MYSQL_PASSWORD=${MYSQL_PASSWORD:-"admin123"}
+
+cat << EOF>./.secrets
+# MYSQL_ROOT_PASSWORD=very_strong_password
+MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
+MYSQL_USER="${MYSQL_USER}"
+MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+EOF
 
 export VM_IP_ADDR=$(ip addr | grep 168 | awk '{ print $2}' | awk -F '/' '{print $1}')
 
 export VM_IP_ADRR=${VM_IP_ADRR:-"192.168.129.202"}
+
+
+export MINIO_ROOT_USER=${MINIO_ROOT_USER:-"minio"}
+export MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-"minio123"}
+export MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY:-"minio"}
+export MINIO_SECRET_KEY=${MINIO_SECRET_KEY:-"minio123"}
+
 cat << EOF>./etc.hosts.de.addon
 ## DE
 ${VM_IP_ADRR}    mage.pesto.io
 ${VM_IP_ADRR}    redpanda-0.pesto.io
+# MinIO
+MINIO_ROOT_USER="${MINIO_ROOT_USER}"
+MINIO_ROOT_PASSWORD="${MINIO_ROOT_PASSWORD}"
+MINIO_ACCESS_KEY="${MINIO_ACCESS_KEY}"
+MINIO_SECRET_KEY="${MINIO_SECRET_KEY}"
 EOF
 
 export OSYS=${OSYS:-"GNU/linux"}

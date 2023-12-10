@@ -117,7 +117,23 @@ services:
     networks:
       - redpanda_network
     command: topic create -r 1 -p 1 my-topic --brokers redpanda-0:9092
-      
+  # --- 
+  # Kafka Connect 
+  # experiments/first/kafka-connect/s3/Dockerfile
+  # 
+  kafka_connect_s3:
+    build:
+      context: experiments/first/kafka-connect/s3/
+      dockerfile: ./Dockerfile
+    container_name: kafka_connect_s3
+    depends_on:
+      - redpanda-0
+    ports:
+      - "0.0.0.0:8083:8083"
+    env_file:
+      - .env
+  # --- 
+  #  
   mysql-db:
     build:
       context: .

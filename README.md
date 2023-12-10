@@ -9,3 +9,9 @@ cd ./lets-breakem-pierre/
 git checkout feature/first/tutorial/dbt
 
 ```
+
+
+```bash
+chmod +x ./experiments/first/utils/.shell/launch.sh
+./experiments/first/utils/.shell/launch.sh
+```

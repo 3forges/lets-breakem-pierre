@@ -38,6 +38,6 @@ else
   cat ./etc.hosts.de.addon | tee -a /etc/hosts
 fi;
 
-docker-compose -f docker-compose-infra-services.yml up --build
-# docker-compose -f docker-compose-infra-services.yml up --force-recreate
+# docker-compose -f docker-compose-infra-services.yml up --build
+docker-compose -f docker-compose-infra-services.yml up --force-recreate
 

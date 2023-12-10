@@ -10,6 +10,7 @@ git checkout feature/first/tutorial/dbt
 
 cd ./experiments/first
 
-chmod +x ./utils/shell/launch.sh
-./utils/shell/launch.sh
+chmod +x ./utils/shell/*.sh
+# ./utils/shell/launch.sh
+./utils/shell/relaunch.sh
 ```

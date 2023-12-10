@@ -168,3 +168,5 @@ __pycache__
 .*
 !.gitignore
 
+!utils/.shell/launch.sh
+

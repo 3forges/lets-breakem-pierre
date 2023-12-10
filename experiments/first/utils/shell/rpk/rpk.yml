@@ -1,0 +1,13 @@
+kafka:
+  # brokers: ["redpanda-0:9092"]
+  brokers: ["redpanda-0.pesto.io:19092"]
+  schemaRegistry:
+    enabled: true
+    # urls: ["http://redpanda-0:8081"]
+    urls: ["http://redpanda-0.pesto.io:18081"]
+redpanda:
+  adminApi:
+    enabled: true
+    # urls: ["http://redpanda-0:9644"]
+    urls: ["http://redpanda-0.pesto.io:19644"]
+    # urls: ["http://redpanda-0.pesto.io:9644"]

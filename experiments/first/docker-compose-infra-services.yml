@@ -59,6 +59,7 @@ services:
   console:
     container_name: redpanda-console
     image: docker.redpanda.com/redpandadata/console:v2.3.1
+    # curl -LO https://github.com/redpanda-data/redpanda/releases/download/v<version>/rpk-linux-amd64.zip
     networks:
       - redpanda_network
     entrypoint: /bin/sh
@@ -85,7 +86,9 @@ services:
           # you enable Kafka connect. Otherwise you'll not be able to start Console.
           # clusters: []
           clusters:
-            - name: redpanda-0
+            # - name: redpanda-0
+            - name: datawarehouse
+            # - name: 0
               # url: http://redpanda-0:8081
               # url: http://redpanda-0.pesto.io:9092
               url: http://redpanda-0.pesto.io:18081

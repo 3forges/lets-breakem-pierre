@@ -37,8 +37,13 @@ services:
     container_name: redpanda-0
     volumes:
       - redpanda-0:/var/lib/redpanda/data
+    # networks:
+    #   - redpanda_network
     networks:
-      - redpanda_network
+      redpanda_network:
+        aliases:
+          - redpanda-0.pesto.io
+          - redpanda-0
     ports:
       - 0.0.0.0:18081:18081
       - 0.0.0.0:18082:18082
@@ -71,6 +76,7 @@ services:
           adminApi:
             enabled: true
             # urls: ["http://redpanda-0:9644"]
+            # urls: ["http://redpanda-0.pesto.io:19644/v1/"]
             urls: ["http://redpanda-0.pesto.io:19644"]
     ports:
       - 0.0.0.0:8080:8080

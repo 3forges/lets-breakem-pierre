@@ -34,7 +34,7 @@ if [ $OSYS == "windows" ]; then
   cat ./etc.hosts.de.addon | tee -a /c/Windows/System32/drivers/etc/hosts
 else
   echo "NIX system"
-  cat ./etc.hosts.de.addon | tee -a /etc/hosts
+  cat ./etc.hosts.de.addon | sudo tee -a /etc/hosts
 fi;
 
 docker-compose -f docker-compose-infra-services.yml up --build

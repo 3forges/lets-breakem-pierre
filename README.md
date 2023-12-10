@@ -8,10 +8,8 @@ cd ./lets-breakem-pierre/
 
 git checkout feature/first/tutorial/dbt
 
-```
+cd ./experiments/first
 
-
-```bash
-chmod +x ./experiments/first/utils/.shell/launch.sh
-./experiments/first/utils/.shell/launch.sh
+chmod +x ./utils/shell/launch.sh
+./utils/shell/launch.sh
 ```

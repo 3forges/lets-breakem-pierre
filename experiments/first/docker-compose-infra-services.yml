@@ -83,9 +83,12 @@ services:
           enabled: true
           # An empty array for clusters is the default, but you have to specify at least one cluster, as soon as
           # you enable Kafka connect. Otherwise you'll not be able to start Console.
-          clusters: []
+          # clusters: []
+          clusters:
             - name: redpanda-0
-              url: http://my-cluster:8083
+              # url: http://redpanda-0:8081
+              # url: http://redpanda-0.pesto.io:9092
+              url: http://redpanda-0.pesto.io:18081
               tls:
                 enabled: false # Trusted certificates are still allowed if TLS is not enabled.
                 # caFilepath:

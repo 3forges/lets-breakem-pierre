@@ -136,7 +136,7 @@ services:
   mage-ai:
     image: mageai/mageai:latest
     ports:
-      - 6789:6789
+      - 0.0.0.0:6789:6789
     command:
       - /app/run_app.sh
       - mage

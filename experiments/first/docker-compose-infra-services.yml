@@ -131,7 +131,7 @@ services:
     ports:
       - "0.0.0.0:8083:8083"
     env_file:
-      - .env
+      - .secrets
   # --- 
   #  
   mysql-db:

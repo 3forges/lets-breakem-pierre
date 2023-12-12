@@ -14,9 +14,29 @@ export MYSQL_PASSWORD=${MYSQL_PASSWORD:-"admin123"}
 
 cat << EOF>./.secrets
 # MYSQL_ROOT_PASSWORD=very_strong_password
+
+# redpanda-console
+KAFKA_BROKERS="redpanda-0.pesto.io:9092"
+
+# MinIO
+MINIO_ROOT_USER="minio"
+MINIO_ROOT_PASSWORD="minio123"
+MINIO_ACCESS_KEY="minio"
+MINIO_SECRET_KEY="minio123"
+
+# --- MySQL
+# MYSQL_ROOT_PASSWORD="debezium"
+# MYSQL_USER="admin"
+# MYSQL_PASSWORD="admin123"
 MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
 MYSQL_USER="${MYSQL_USER}"
 MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+# kafka connect
+BOOTSTRAP_SERVERS="redpanda-0.pesto.io:9092"
+GROUP_ID="1"
+CONFIG_STORAGE_TOPIC="debezium.configs"
+OFFSET_STORAGE_TOPIC="debezium.offset"
+STATUS_STORAGE_TOPIC="debezium.status"
 EOF
 
 export VM_IP_ADDR=$(ip addr | grep 168 | awk '{ print $2}' | awk -F '/' '{print $1}')

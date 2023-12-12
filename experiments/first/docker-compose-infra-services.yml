@@ -132,6 +132,13 @@ services:
       - "0.0.0.0:8083:8083"
     env_file:
       - .secrets
+    # networks:
+    #   - redpanda_network
+    networks:
+      redpanda_network:
+        aliases:
+          - kafka_connect_s3.pesto.io
+          - kafka_connect_s3
   # --- 
   #  
   mysql-db:

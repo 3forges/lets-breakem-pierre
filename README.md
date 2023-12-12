@@ -86,3 +86,65 @@ mysql> show tables;
 ```
 
 * https://github.com/ongxuanhong/de01-stream-ingestion-redpanda-minio
+
+
+```bash
+
+kafka_connect_s3    | Using BOOTSTRAP_SERVERS=0.0.0.0:9092
+kafka_connect_s3    | Plugins are loaded from /kafka/connect
+kafka_connect_s3    | The CONFIG_STORAGE_TOPIC variable must be set to the name of the topic where connector configurations will be stored.
+kafka_connect_s3    | This topic must have a single partition, be highly replicated (e.g., 3x or more) and should be configured for compaction.
+kafka_connect_s3 exited with code 1
+
+```
+
+et hop avec ma config, j'ai du nouveau:
+
+```bash
+Utilisateur@Utilisateur-PC MINGW64 ~
+$ curl http://redpanda-0.pesto.io:18082/brokers | jq .
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    15  100    15    0     0     66      0 --:--:-- --:--:-- --:--:--    66
+{
+  "brokers": [
+    0
+  ]
+}
+
+Utilisateur@Utilisateur-PC MINGW64 ~
+$ curl http://redpanda-0.pesto.io:19644/v1/brokers | jq .
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   449  100   449    0     0  76256      0 --:--:-- --:--:-- --:--:-- 89800
+[
+  {
+    "node_id": 0,
+    "num_cores": 1,
+    "internal_rpc_address": "redpanda-0",
+    "internal_rpc_port": 33145,
+    "membership_status": "active",
+    "is_alive": true,
+    "disk_space": [
+      {
+        "path": "/var/lib/redpanda/data",
+        "free": 7574007808,
+        "total": 20956397568
+      }
+    ],
+    "version": "v23.2.6 - 1bbbce0186acb251a12458d0cd2c10ad7d6d93a3",
+    "maintenance_status": {
+      "draining": false,
+      "finished": false,
+      "errors": false,
+      "partitions": 0,
+      "eligible": 0,
+      "transferring": 0,
+      "failed": 0
+    }
+  }
+]
+
+Utilisateur@Utilisateur-PC MINGW64 ~
+
+```

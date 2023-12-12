@@ -86,8 +86,8 @@ services:
           # you enable Kafka connect. Otherwise you'll not be able to start Console.
           # clusters: []
           clusters:
-            # - name: redpanda-0
-            - name: datawarehouse
+            - name: redpanda-0
+            # - name: datawarehouse
             # - name: 0
               # url: http://redpanda-0:8081
               # url: http://redpanda-0.pesto.io:9092

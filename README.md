@@ -28,7 +28,6 @@ curl http://redpanda-0.pesto.io:19644/v1/brokers | jq .
 
 We can completely self-code from scratch processes such as creating topics on Redpanda to contain streaming events, writing scripts to read data from this topic, and saving it on MinIO. Instead, we have Kafka connect with a lot of connectors that support connecting from source to sink, saving us the time of complicated installation, by just focusing on setting up and running the job.
 
-
 * To read the data out, we just need to create a connector for Kafka connect. This connector is named `io.debezium.connector.mysql.MySqlConnector`. Detailed setup information can be found [here](https://docs.confluent.io/cloud/current/connectors/cc-mysql-source.html#how-should-we-connect-to-your-data) :
 
 ```bash
@@ -87,4 +86,3 @@ mysql> show tables;
 ```
 
 * https://github.com/ongxuanhong/de01-stream-ingestion-redpanda-minio
-

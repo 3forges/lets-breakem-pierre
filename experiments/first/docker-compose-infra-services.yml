@@ -123,7 +123,7 @@ services:
   # 
   kafka_connect_s3:
     build:
-      context: experiments/first/kafka-connect/s3/
+      context: kafka-connect/s3/
       dockerfile: ./Dockerfile
     container_name: kafka_connect_s3
     depends_on:
